@@ -1,0 +1,2564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Association of Apartment Owners | J21 & J22</title>
+  <meta name="description" content="Association of Apartment Owners - Bringing the residents of J21 and J22 together through transparent governance, thoughtful stewardship, and a shared commitment to community." />
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Association of Apartment Owners | J21 & J22" />
+  <meta property="og:description" content="A stronger home starts with us. Bringing the residents of J21 and J22 together through transparent governance, thoughtful stewardship, and community." />
+  <meta property="og:type" content="website" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a2618' stroke='%23c8f53c' stroke-width='1.5'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='900' font-size='11' fill='%23c8f53c'%3EAOA%3C/text%3E%3C/svg%3E" />
+
+  <!-- Google Fonts: DM Serif Display & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-dark: #04160d;
+      --bg-navy-surface: #0a2618;
+      --bg-navy-card: #0f3522;
+      --bg-navy-hover: #15472e;
+      --border-navy: rgba(255, 255, 255, 0.08);
+      
+      --accent-lime: #c8f53c;
+      --accent-lime-dim: rgba(200, 245, 60, 0.15);
+      
+      --bg-light: #fafaf7;
+      --bg-light-surface: #ffffff;
+      --border-light: #e5e5df;
+      --border-light-soft: #ecece6;
+      --text-light-navy: #0c2617;
+      --text-light-muted: #5e6d82;
+      --tag-pill-bg: #e6f4ec;
+      --tag-pill-text: #115233;
+      --blue-accent: #15803d;
+
+      --text-white: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+
+      --font-heading: 'DM Serif Display', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --transition-smooth: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      --container-max: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-white);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Ambient Background Glows */
+    .ambient-glow {
+      position: fixed;
+      top: -120px;
+      right: 15%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(16, 75, 42, 0.45) 0%, rgba(4, 22, 13, 0) 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 28px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Header Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(4, 22, 13, 0.88);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border-navy);
+      transition: var(--transition-smooth);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 78px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-white);
+    }
+
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      background: var(--bg-navy-card);
+      border: 1px solid rgba(200, 245, 60, 0.35);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-lime);
+      font-weight: 800;
+      font-size: 15px;
+      letter-spacing: -0.5px;
+      box-shadow: 0 0 15px rgba(200, 245, 60, 0.12);
+    }
+
+    .brand-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--text-white);
+    }
+
+    .brand-subtitle {
+      font-size: 12px;
+      color: var(--accent-lime);
+      font-weight: 500;
+      letter-spacing: 0.8px;
+    }
+
+    /* Header Nav Tabs */
+    .nav-tabs {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(13, 51, 32, 0.65);
+      padding: 5px;
+      border-radius: 999px;
+      border: 1px solid var(--border-navy);
+    }
+
+    .nav-tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 7px 15px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-tab-btn:hover {
+      color: var(--text-white);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .nav-tab-btn.active {
+      background: var(--accent-lime);
+      color: #04140a;
+      font-weight: 700;
+      box-shadow: 0 2px 14px rgba(200, 245, 60, 0.35);
+    }
+
+    .portal-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-white);
+      background: rgba(255, 255, 255, 0.06);
+      padding: 9px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--border-navy);
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+
+    .portal-link:hover {
+      border-color: var(--accent-lime);
+      color: var(--accent-lime);
+      background: var(--accent-lime-dim);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      padding: 85px 0 75px;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 880px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .kicker-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(200, 245, 60, 0.08);
+      border: 1px solid rgba(200, 245, 60, 0.25);
+      color: var(--accent-lime);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 7px 20px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+    }
+
+    .kicker-dot {
+      width: 7px;
+      height: 7px;
+      background-color: var(--accent-lime);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--accent-lime);
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(42px, 6.5vw, 70px);
+      line-height: 1.1;
+      font-weight: 400;
+      color: var(--text-white);
+      margin-bottom: 24px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-title span.highlight {
+      color: var(--accent-lime);
+      font-style: italic;
+    }
+
+    .hero-description {
+      font-size: clamp(16.5px, 2.2vw, 20px);
+      color: var(--text-muted);
+      line-height: 1.65;
+      font-weight: 400;
+      max-width: 760px;
+      margin: 0 auto 38px;
+    }
+
+    /* Primary Hero Action Tabs */
+    .hero-cta-tabs {
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: rgba(13, 51, 32, 0.75);
+      padding: 8px;
+      border-radius: 999px;
+      border: 1px solid var(--border-navy);
+      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .tab-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--text-muted);
+      padding: 13px 26px;
+      border-radius: 999px;
+      font-size: 14.5px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: var(--transition-smooth);
+    }
+
+    .tab-pill:hover {
+      color: var(--text-white);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .tab-pill.active {
+      background: var(--accent-lime);
+      color: #04140a;
+      font-weight: 700;
+      box-shadow: 0 3px 18px rgba(200, 245, 60, 0.4);
+    }
+
+    /* Quick Community Badges */
+    .community-stats-bar {
+      margin-top: 50px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .stat-pill-card {
+      background: rgba(13, 51, 32, 0.5);
+      border: 1px solid var(--border-navy);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-align: left;
+      backdrop-filter: blur(10px);
+      transition: var(--transition-smooth);
+    }
+
+    .stat-pill-card:hover {
+      border-color: rgba(200, 245, 60, 0.25);
+      transform: translateY(-2px);
+    }
+
+    .stat-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: rgba(200, 245, 60, 0.1);
+      color: var(--accent-lime);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .stat-text h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-white);
+      margin-bottom: 2px;
+    }
+
+    .stat-text p {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+
+    /* Common Dark Section Styles */
+    .section-dark {
+      background-color: var(--bg-dark);
+      padding: 90px 0 100px;
+      border-top: 1px solid var(--border-navy);
+    }
+
+    .section-header-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-bottom: 44px;
+    }
+
+    .section-badge-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--text-muted);
+      font-size: 12.5px;
+      font-weight: 600;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .num-circle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: var(--text-white);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .section-title-dark {
+      font-family: var(--font-heading);
+      font-size: clamp(34px, 4.8vw, 52px);
+      font-weight: 400;
+      color: var(--text-white);
+      line-height: 1.15;
+    }
+
+    .section-title-dark span.lime-script {
+      color: var(--accent-lime);
+      font-style: italic;
+    }
+
+    .section-desc-right-dark {
+      max-width: 380px;
+      font-size: 14.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      text-align: right;
+    }
+
+    /* ==========================================================================
+       SECTION 01: ANNOUNCEMENTS & OFFICIAL NOTICE BOARD
+       ========================================================================== */
+    .announcements-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .announcement-card {
+      background: var(--bg-navy-surface);
+      border: 1px solid var(--border-navy);
+      border-radius: var(--radius-md);
+      padding: 30px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition-smooth);
+    }
+
+    .announcement-card:hover {
+      background: var(--bg-navy-card);
+      border-color: rgba(200, 245, 60, 0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+    }
+
+    .announcement-card.urgent {
+      border-left: 3px solid #f87171;
+    }
+
+    .announcement-card.featured {
+      border-left: 3px solid var(--accent-lime);
+    }
+
+    .announcement-card.general {
+      border-left: 3px solid #38bdf8;
+    }
+
+    .announcement-meta-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .notice-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+    .notice-tag.urgent-tag {
+      background: rgba(239, 68, 68, 0.16);
+      color: #fca5a5;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+
+    .notice-tag.feature-tag {
+      background: rgba(200, 245, 60, 0.12);
+      color: var(--accent-lime);
+      border: 1px solid rgba(200, 245, 60, 0.25);
+    }
+
+    .notice-tag.general-tag {
+      background: rgba(56, 189, 248, 0.12);
+      color: #7dd3fc;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+
+    .notice-date {
+      font-size: 12.5px;
+      color: var(--text-dim);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .notice-title {
+      font-family: var(--font-heading);
+      font-size: 21px;
+      font-weight: 400;
+      color: var(--text-white);
+      line-height: 1.3;
+      margin-bottom: 14px;
+      letter-spacing: -0.2px;
+    }
+
+    .notice-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 22px;
+      flex-grow: 1;
+    }
+
+    .notice-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 12.5px;
+    }
+
+    .notice-ref {
+      color: var(--text-dim);
+      font-family: monospace;
+    }
+
+    .notice-link {
+      color: var(--accent-lime);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: var(--transition-smooth);
+    }
+
+    .notice-link:hover {
+      transform: translateX(3px);
+    }
+
+    /* ==========================================================================
+       COMMUNITY CALENDAR / UPCOMING EVENTS (PLACED AFTER NOTICES)
+       ========================================================================== */
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .event-card {
+      background: var(--bg-navy-surface);
+      border: 1px solid var(--border-navy);
+      border-radius: var(--radius-md);
+      padding: 30px;
+      display: flex;
+      gap: 22px;
+      position: relative;
+      transition: var(--transition-smooth);
+    }
+
+    .event-card:hover {
+      background: var(--bg-navy-card);
+      border-color: rgba(200, 245, 60, 0.35);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+    }
+
+    .event-date-box {
+      width: 72px;
+      height: 80px;
+      background: var(--bg-dark);
+      border: 1px solid rgba(200, 245, 60, 0.3);
+      border-radius: var(--radius-sm);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      flex-shrink: 0;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+    }
+
+    .event-date-box .day {
+      font-family: var(--font-heading);
+      font-size: 28px;
+      line-height: 1;
+      color: var(--accent-lime);
+    }
+
+    .event-date-box .month {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-top: 3px;
+      color: #94a3b8;
+    }
+
+    .event-content {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .event-type-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--accent-lime);
+      margin-bottom: 8px;
+    }
+
+    .event-title {
+      font-family: var(--font-heading);
+      font-size: 21px;
+      color: var(--text-white);
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .event-details-row {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+
+    .event-detail-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .event-detail-item svg {
+      color: var(--accent-lime);
+      flex-shrink: 0;
+    }
+
+    .event-detail-item strong {
+      color: var(--text-white);
+    }
+
+    .event-desc {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 20px;
+    }
+
+    .event-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: auto;
+    }
+
+    .btn-event-rsvp {
+      background: var(--accent-lime);
+      color: #04140a;
+      border: none;
+      padding: 9px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-event-rsvp:hover {
+      box-shadow: 0 4px 16px rgba(200, 245, 60, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .btn-event-cal {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-white);
+      border: 1px solid var(--border-navy);
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-event-cal:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* ==========================================================================
+       SECTION 02: LEADERSHIP (MATCHING SCREENSHOT 1)
+       ========================================================================== */
+    .leadership-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      background: var(--bg-navy-card);
+      border: 1px solid var(--border-navy);
+      gap: 1px;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+    }
+
+    .leader-card {
+      background: var(--bg-navy-surface);
+      padding: 38px 36px 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 210px;
+      transition: var(--transition-smooth);
+    }
+
+    .leader-card:hover {
+      background: var(--bg-navy-hover);
+    }
+
+    .card-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 22px;
+    }
+
+    .role-badge {
+      color: var(--accent-lime);
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+    }
+
+    .card-index {
+      font-family: var(--font-heading);
+      font-style: italic;
+      color: rgba(148, 163, 184, 0.45);
+      font-size: 17px;
+      font-weight: 400;
+    }
+
+    .leader-name {
+      font-family: var(--font-heading);
+      font-size: clamp(23px, 2.2vw, 29px);
+      font-weight: 400;
+      color: var(--text-white);
+      line-height: 1.25;
+      margin-bottom: 24px;
+      letter-spacing: -0.2px;
+    }
+
+    .flat-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: rgba(148, 163, 184, 0.75);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    .flat-icon {
+      opacity: 0.7;
+    }
+
+    /* ==========================================================================
+       SECTION 03 & 04: EDITORIAL ALABASTER LIGHT THEME (MATCHING SCREENSHOTS 2 & 3)
+       ========================================================================== */
+    .section-light {
+      background-color: var(--bg-light);
+      color: var(--text-light-navy);
+      padding: 95px 0 105px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .section-num-tag-light {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--text-light-muted);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .num-circle-light {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1px solid #cbd5e1;
+      color: var(--text-light-navy);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .sub-bar-tag {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #1a4d31;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .sub-bar-tag .dash {
+      width: 22px;
+      height: 2.5px;
+      background-color: var(--accent-lime);
+      display: inline-block;
+    }
+
+    .section-title-light {
+      font-family: var(--font-heading);
+      font-size: clamp(36px, 5.2vw, 56px);
+      font-weight: 400;
+      color: var(--text-light-navy);
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+    }
+
+    .section-title-light span.italic-accent {
+      font-style: italic;
+      color: #114227;
+    }
+
+    .section-desc-right-light {
+      max-width: 380px;
+      font-size: 15px;
+      color: var(--text-light-muted);
+      line-height: 1.6;
+      text-align: right;
+    }
+
+    /* Section 03 Table */
+    .representation-table-wrap {
+      background: var(--bg-light-surface);
+      border-top: 1.5px solid var(--text-light-navy);
+      margin-top: 40px;
+    }
+
+    .rep-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .rep-table th {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--text-light-muted);
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .rep-table th.col-apt {
+      text-align: right;
+    }
+
+    .rep-table td {
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--border-light-soft);
+      vertical-align: middle;
+      transition: background 0.2s ease;
+    }
+
+    .rep-table tr:hover td {
+      background-color: #f4f6fa;
+    }
+
+    .col-no {
+      width: 70px;
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-size: 17px;
+      color: #64748b;
+    }
+
+    .col-name {
+      font-family: var(--font-heading);
+      font-size: 21px;
+      font-weight: 400;
+      color: var(--text-light-navy);
+      letter-spacing: -0.2px;
+    }
+
+    .col-apt-cell {
+      text-align: right;
+      width: 130px;
+    }
+
+    .apt-badge-pill {
+      display: inline-block;
+      background: var(--tag-pill-bg);
+      color: var(--tag-pill-text);
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    /* Section 04: Governance / Resolutions */
+    .governance-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .gov-left-col {
+      position: sticky;
+      top: 100px;
+    }
+
+    .gov-description {
+      font-size: 15.5px;
+      color: var(--text-light-muted);
+      line-height: 1.65;
+      margin-top: 18px;
+      max-width: 400px;
+    }
+
+    .gov-parchment-graphic {
+      margin-top: 36px;
+      opacity: 0.85;
+    }
+
+    .resolutions-list {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .resolution-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 30px 10px 30px 0;
+      border-bottom: 1px solid var(--border-light);
+      transition: background 0.2s ease;
+    }
+
+    .resolution-content-box {
+      display: flex;
+      align-items: baseline;
+      gap: 28px;
+    }
+
+    .res-number {
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-size: 20px;
+      color: #1b633b;
+      min-width: 28px;
+    }
+
+    .res-text {
+      font-family: var(--font-heading);
+      font-size: clamp(20px, 2.2vw, 24px);
+      font-weight: 400;
+      color: var(--text-light-navy);
+      line-height: 1.35;
+      letter-spacing: -0.2px;
+    }
+
+    .res-check-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1.5px solid #1b633b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1b633b;
+      flex-shrink: 0;
+      background: rgba(27, 99, 59, 0.06);
+    }
+
+    /* ==========================================================================
+       SECTION: CONTACT THE BOARD
+       ========================================================================== */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .contact-form-card {
+      background: var(--bg-navy-surface);
+      border: 1px solid var(--border-navy);
+      border-radius: var(--radius-lg);
+      padding: 38px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-control {
+      width: 100%;
+      background: rgba(4, 22, 13, 0.75);
+      border: 1px solid var(--border-navy);
+      border-radius: var(--radius-sm);
+      padding: 13px 16px;
+      color: var(--text-white);
+      font-family: var(--font-body);
+      font-size: 14.5px;
+      outline: none;
+      transition: var(--transition-smooth);
+    }
+
+    .form-control:focus {
+      border-color: var(--accent-lime);
+      box-shadow: 0 0 0 3px var(--accent-lime-dim);
+    }
+
+    .form-control::placeholder {
+      color: var(--text-dim);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--accent-lime);
+      color: #04140a;
+      border: none;
+      padding: 14px 24px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: var(--transition-smooth);
+      box-shadow: 0 4px 18px rgba(200, 245, 60, 0.25);
+    }
+
+    .btn-submit:hover:not(:disabled) {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 22px rgba(200, 245, 60, 0.4);
+    }
+
+    .btn-submit:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .spin-icon {
+      animation: spin 1s linear infinite;
+    }
+
+    .form-feedback {
+      display: none;
+      padding: 16px;
+      border-radius: var(--radius-sm);
+      margin-top: 18px;
+      font-size: 14px;
+      font-weight: 500;
+      text-align: center;
+      line-height: 1.55;
+    }
+
+    .form-feedback.success {
+      display: block;
+      background: rgba(200, 245, 60, 0.15);
+      border: 1px solid var(--accent-lime);
+      color: var(--accent-lime);
+    }
+
+    .form-feedback.error {
+      display: block;
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid #f87171;
+      color: #fca5a5;
+    }
+
+    /* Contact Details Side Cards */
+    .contact-info-column {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Screenshot-Accurate Official Contact Component */
+    .official-contact-block {
+      background: #09331e;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius-lg);
+      padding: 10px 32px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .contact-meta-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      padding: 26px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+      text-decoration: none;
+      color: #ffffff;
+      transition: var(--transition-smooth);
+    }
+
+    .contact-meta-row:last-child {
+      border-bottom: none;
+    }
+
+    .contact-meta-icon {
+      width: 26px;
+      height: 26px;
+      color: #ffffff;
+      opacity: 0.9;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .contact-meta-content {
+      flex-grow: 1;
+    }
+
+    .contact-meta-label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      color: #8ddbb0;
+      margin-bottom: 7px;
+    }
+
+    .contact-meta-value {
+      font-size: 16px;
+      font-weight: 500;
+      color: #ffffff;
+      line-height: 1.5;
+      letter-spacing: 0.2px;
+    }
+
+    .contact-meta-arrow {
+      color: #ffffff;
+      opacity: 0.75;
+      flex-shrink: 0;
+      margin-top: 4px;
+      transition: var(--transition-smooth);
+    }
+
+    .contact-meta-row:hover .contact-meta-arrow {
+      opacity: 1;
+      transform: translate(3px, -3px);
+      color: var(--accent-lime);
+    }
+
+    .contact-meta-row:hover .contact-meta-value {
+      color: #ffffff;
+    }
+
+    .info-card {
+      background: var(--bg-navy-surface);
+      border: 1px solid var(--border-navy);
+      border-radius: var(--radius-md);
+      padding: 24px 26px;
+    }
+
+    .info-card h4 {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--accent-lime);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 12px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .info-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .info-item strong {
+      color: var(--text-white);
+      min-width: 90px;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: auto;
+      border-top: 1px solid var(--border-navy);
+      background: #020b06;
+      padding: 44px 0 32px;
+      color: var(--text-dim);
+      font-size: 13.5px;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-lime);
+    }
+
+    /* Toast Notification Popup */
+    .toast-popup {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #0f3522;
+      border: 1px solid var(--accent-lime);
+      color: #ffffff;
+      padding: 14px 22px;
+      border-radius: var(--radius-sm);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      z-index: 2000;
+      display: none;
+      font-size: 14px;
+      font-weight: 500;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive Queries */
+    @media (max-width: 960px) {
+      .announcements-grid {
+        grid-template-columns: 1fr;
+      }
+      .events-grid {
+        grid-template-columns: 1fr;
+      }
+      .leadership-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .governance-layout {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .gov-left-col {
+        position: static;
+      }
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+      .community-stats-bar {
+        grid-template-columns: 1fr;
+      }
+      .section-desc-right-dark,
+      .section-desc-right-light {
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .leadership-grid {
+        grid-template-columns: 1fr;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      .nav-tabs {
+        display: none;
+      }
+      .nav-inner {
+        height: 68px;
+      }
+      .hero-section {
+        padding: 50px 0 40px;
+      }
+      .hero-cta-tabs {
+        width: 100%;
+        border-radius: var(--radius-md);
+      }
+      .tab-pill {
+        width: 100%;
+        justify-content: center;
+      }
+      .col-no {
+        width: 45px;
+      }
+      .col-name {
+        font-size: 18px;
+      }
+      .resolution-content-box {
+        gap: 16px;
+      }
+      .res-text {
+        font-size: 19px;
+      }
+      .event-card {
+        flex-direction: column;
+        padding: 24px;
+      }
+      .event-date-box {
+        width: 64px;
+        height: 70px;
+      }
+      .event-date-box .day {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient lighting background -->
+  <div class="ambient-glow"></div>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav-inner">
+      <a href="#home" class="brand-logo" id="nav-brand-logo">
+        <div class="brand-icon">AOA</div>
+        <div class="brand-info">
+          <span class="brand-title">Apartment Owners</span>
+          <span class="brand-subtitle">J21 &amp; J22 Community</span>
+        </div>
+      </a>
+
+      <!-- Quick Nav Tabs -->
+      <nav class="nav-tabs" aria-label="Main Navigation">
+        <a href="#home" class="nav-tab-btn" id="tab-nav-home">
+          <span>Overview</span>
+        </a>
+        <a href="#announcements-section" class="nav-tab-btn" id="tab-nav-notices">
+          <span>Notices</span>
+        </a>
+        <a href="#events-section" class="nav-tab-btn" id="tab-nav-events">
+          <span>Events</span>
+        </a>
+        <a href="#leadership-section" class="nav-tab-btn" id="tab-nav-meet">
+          <span>Meet Association</span>
+        </a>
+        <a href="#governance-section" class="nav-tab-btn" id="tab-nav-gov">
+          <span>Governance</span>
+        </a>
+        <a href="#contact-section" class="nav-tab-btn" id="tab-nav-contact">
+          <span>Contact</span>
+        </a>
+      </nav>
+
+      <a href="#contact-section" class="portal-link" id="nav-resident-support-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+        <span>Resident Desk</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main>
+    <section class="hero-section" id="home">
+      <div class="container hero-content">
+        <div class="kicker-badge" id="hero-kicker">
+          <span class="kicker-dot"></span>
+          Association of Apartment Owners
+        </div>
+
+        <h1 class="hero-title">
+          A stronger home <span class="highlight">starts with us.</span>
+        </h1>
+
+        <p class="hero-description">
+          Bringing the residents of J21 and J22 together through transparent governance, thoughtful stewardship, and a shared commitment to community.
+        </p>
+
+        <!-- Interactive Tabs requested by user -->
+        <div class="hero-cta-tabs" role="tablist" aria-label="Section Selector">
+          <a
+            href="#leadership-section"
+            class="tab-pill active"
+            id="btn-tab-meet"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            Meet the association
+          </a>
+
+          <a
+            href="#announcements-section"
+            class="tab-pill"
+            id="btn-tab-notices"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+            Notice Board
+          </a>
+
+          <a
+            href="#events-section"
+            class="tab-pill"
+            id="btn-tab-calendar"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            Upcoming Events
+          </a>
+
+          <a
+            href="#contact-section"
+            class="tab-pill"
+            id="btn-tab-contact"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+            </svg>
+            Contact the board
+          </a>
+        </div>
+
+        <!-- Community Quick Stats -->
+        <div class="community-stats-bar">
+          <div class="stat-pill-card">
+            <div class="stat-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              </svg>
+            </div>
+            <div class="stat-text">
+              <h4>Dual Towers</h4>
+              <p>Representing J21 &amp; J22 resident welfare</p>
+            </div>
+          </div>
+
+          <div class="stat-pill-card">
+            <div class="stat-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <div class="stat-text">
+              <h4>Transparent Governance</h4>
+              <p>Audited accounts &amp; regular assemblies</p>
+            </div>
+          </div>
+
+          <div class="stat-pill-card">
+            <div class="stat-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <div class="stat-text">
+              <h4>Thoughtful Stewardship</h4>
+              <p>Proactive maintenance &amp; safety standards</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 01: ANNOUNCEMENTS & OFFICIAL NOTICE BOARD
+         ========================================================================== -->
+    <section class="section-dark" id="announcements-section">
+      <div class="container">
+        <!-- Section Header Row -->
+        <div class="section-header-row">
+          <div>
+            <div class="section-badge-tag">
+              <span class="num-circle">01</span>
+              NOTICE BOARD
+            </div>
+            <h2 class="section-title-dark">
+              Notices for <span class="lime-script">our residents.</span>
+            </h2>
+          </div>
+          <div class="section-desc-right-dark">
+            Official circulars, essential maintenance schedules, and administrative notifications for J21 &amp; J22.
+          </div>
+        </div>
+
+        <!-- Announcements Grid -->
+        <div class="announcements-grid">
+          
+          <!-- Announcement 1 -->
+          <article class="announcement-card urgent">
+            <div>
+              <div class="announcement-meta-top">
+                <span class="notice-tag urgent-tag">Maintenance Notice</span>
+                <span class="notice-date">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                  Sep 08, 2026
+                </span>
+              </div>
+              <h3 class="notice-title">Overhead Water Reservoir Cleaning &amp; Pressure Line Flushing</h3>
+              <p class="notice-desc">
+                Comprehensive sanitization of overhead and underground potable water reservoirs across both Towers J21 &amp; J22. Water supply will run on gravity reserves between 1:00 PM and 5:00 PM.
+              </p>
+            </div>
+            <div class="notice-footer">
+              <span class="notice-ref">Ref: CIR-2026/09/04</span>
+              <a href="#contact-section" class="notice-link" onclick="showToast('Circular CIR-2026/09/04 available in Tower lobbies')">
+                Read Notice &rarr;
+              </a>
+            </div>
+          </article>
+
+          <!-- Announcement 2 -->
+          <article class="announcement-card featured">
+            <div>
+              <div class="announcement-meta-top">
+                <span class="notice-tag feature-tag">Accounts &amp; Dues</span>
+                <span class="notice-date">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                  Sep 01, 2026
+                </span>
+              </div>
+              <h3 class="notice-title">Q3 Maintenance Invoices Issued &amp; Bank Account Active</h3>
+              <p class="notice-desc">
+                Quarterly maintenance invoices for July–September 2026 have been generated. Direct NEFT/RTGS &amp; online portal payments are now active into the Association Bank Account.
+              </p>
+            </div>
+            <div class="notice-footer">
+              <span class="notice-ref">Ref: CIR-2026/09/01</span>
+              <a href="#contact-section" class="notice-link" onclick="showToast('Invoice copies dispatched to registered emails')">
+                View Details &rarr;
+              </a>
+            </div>
+          </article>
+
+          <!-- Announcement 3 -->
+          <article class="announcement-card general">
+            <div>
+              <div class="announcement-meta-top">
+                <span class="notice-tag general-tag">Security &amp; Access</span>
+                <span class="notice-date">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                  Aug 28, 2026
+                </span>
+              </div>
+              <h3 class="notice-title">RFID Vehicle Tag Registration for Gate 1 &amp; Gate 2 Barriers</h3>
+              <p class="notice-desc">
+                Automated barrier gates are in final testing. Owners and residents who haven't collected their encrypted vehicle RFID windshield stickers can visit the Board Office during Sunday hours.
+              </p>
+            </div>
+            <div class="notice-footer">
+              <span class="notice-ref">Ref: CIR-2026/08/19</span>
+              <a href="#contact-section" class="notice-link" onclick="showToast('Office hours: Sundays 10:30 AM – 12:30 PM')">
+                Registration Info &rarr;
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         COMMUNITY CALENDAR / UPCOMING EVENTS (PLACED RIGHT AFTER NOTICES)
+         ========================================================================== -->
+    <section class="section-dark" id="events-section" style="border-top: 1px solid rgba(255, 255, 255, 0.06); background-color: #03140a;">
+      <div class="container">
+        <!-- Section Header Row -->
+        <div class="section-header-row">
+          <div>
+            <div class="section-badge-tag">
+              <span class="num-circle">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+              </span>
+              COMMUNITY CALENDAR
+            </div>
+            <h2 class="section-title-dark">
+              Gathering <span class="lime-script">together.</span>
+            </h2>
+          </div>
+          <div class="section-desc-right-dark">
+            Upcoming general assemblies, family cultural forums, and community wellness programs for J21 &amp; J22.
+          </div>
+        </div>
+
+        <!-- Events Grid -->
+        <div class="events-grid">
+          
+          <!-- Event 1 -->
+          <article class="event-card">
+            <div class="event-date-box">
+              <span class="day">20</span>
+              <span class="month">SEP</span>
+            </div>
+            <div class="event-content">
+              <span class="event-type-tag">General Assembly</span>
+              <h3 class="event-title">Annual General Meeting (AGM) 2026</h3>
+              <div class="event-details-row">
+                <div class="event-detail-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  <span><strong>Time:</strong> 10:30 AM – 1:30 PM</span>
+                </div>
+                <div class="event-detail-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <span><strong>Location:</strong> Community Clubhouse, Tower J21 Ground Floor</span>
+                </div>
+              </div>
+              <p class="event-desc">
+                Review of financial audit reports, facility maintenance updates, and open dialogue with executive board members. Refreshments will be served.
+              </p>
+              <div class="event-actions">
+                <button type="button" class="btn-event-rsvp" onclick="showToast('RSVP recorded for AGM 2026')">
+                  <span>RSVP Attendance</span>
+                </button>
+                <button type="button" class="btn-event-cal" onclick="showToast('Event added to your calendar')">
+                  <span>Add to Calendar</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Event 2 -->
+          <article class="event-card">
+            <div class="event-date-box">
+              <span class="day">04</span>
+              <span class="month">OCT</span>
+            </div>
+            <div class="event-content">
+              <span class="event-type-tag">Wellness &amp; Health</span>
+              <h3 class="event-title">Comprehensive Health &amp; Cardiac Camp</h3>
+              <div class="event-details-row">
+                <div class="event-detail-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  <span><strong>Time:</strong> 08:30 AM – 12:30 PM</span>
+                </div>
+                <div class="event-detail-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <span><strong>Location:</strong> Multi-purpose Recreation Hall, Tower J22</span>
+                </div>
+              </div>
+              <p class="event-desc">
+                Free cardiac consultation, basic blood tests (Lipid, Sugar), ECG, and BP screening organized in collaboration with visiting specialists for all residents.
+              </p>
+              <div class="event-actions">
+                <button type="button" class="btn-event-rsvp" onclick="showToast('Health Camp slot booked')">
+                  <span>Book Free Slot</span>
+                </button>
+                <button type="button" class="btn-event-cal" onclick="showToast('Event added to your calendar')">
+                  <span>Add to Calendar</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Event 3 -->
+          <article class="event-card">
+            <div class="event-date-box">
+              <span class="day">18</span>
+              <span class="month">OCT</span>
+            </div>
+            <div class="event-content">
+              <span class="event-type-tag">Cultural &amp; Festive</span>
+              <h3 class="event-title">Sharad Utsav &amp; Diwali Cultural Gala</h3>
+              <div class="event-details-row">
+                <div class="event-detail-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  <span><strong>Time:</strong> 06:30 PM – 10:00 PM</span>
+                </div>
+                <div class="event-detail-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <span><strong>Location:</strong> Central Amphitheatre &amp; Podium Lawn (Between J21 &amp; J22)</span>
+                </div>
+              </div>
+              <p class="event-desc">
+                An evening of music, youth performances, festive lighting decoration, and community dinner hosted by the Resident Cultural Committee.
+              </p>
+              <div class="event-actions">
+                <button type="button" class="btn-event-rsvp" onclick="showToast('Thank you for volunteering!')">
+                  <span>Volunteer / Register</span>
+                </button>
+                <button type="button" class="btn-event-cal" onclick="showToast('Event added to your calendar')">
+                  <span>Add to Calendar</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Event 4 -->
+          <article class="event-card">
+            <div class="event-date-box">
+              <span class="day">08</span>
+              <span class="month">NOV</span>
+            </div>
+            <div class="event-content">
+              <span class="event-type-tag">Sustainability</span>
+              <h3 class="event-title">Rooftop Solar &amp; Waste Composting Workshop</h3>
+              <div class="event-details-row">
+                <div class="event-detail-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  <span><strong>Time:</strong> 11:00 AM – 12:30 PM</span>
+                </div>
+                <div class="event-detail-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <span><strong>Location:</strong> Rooftop Garden Deck, Tower J21</span>
+                </div>
+              </div>
+              <p class="event-desc">
+                Hands-on session on household segregation, compost bins for balconies, and a walkthrough of our common rooftop grid-tied solar arrays.
+              </p>
+              <div class="event-actions">
+                <button type="button" class="btn-event-rsvp" onclick="showToast('Registered for Workshop')">
+                  <span>Register Free</span>
+                </button>
+                <button type="button" class="btn-event-cal" onclick="showToast('Event added to your calendar')">
+                  <span>Add to Calendar</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 02: LEADERSHIP (MATCHING SCREENSHOT 1)
+         ========================================================================== -->
+    <section class="section-dark" id="leadership-section" style="border-top: 1px solid rgba(255,255,255,0.06);">
+      <div class="container">
+        <!-- Section Header Row -->
+        <div class="section-header-row">
+          <div>
+            <div class="section-badge-tag">
+              <span class="num-circle">02</span>
+              LEADERSHIP
+            </div>
+            <h2 class="section-title-dark">
+              Leading <span class="lime-script">together.</span>
+            </h2>
+          </div>
+          <div class="section-desc-right-dark">
+            Association's key responsibilities.
+          </div>
+        </div>
+
+        <!-- 6-Card Leadership Grid -->
+        <div class="leadership-grid" id="board-members-grid">
+          
+          <!-- Card 01: President -->
+          <article class="leader-card" id="leader-01">
+            <div>
+              <div class="card-top-row">
+                <span class="role-badge">PRESIDENT</span>
+                <span class="card-index">01</span>
+              </div>
+              <h3 class="leader-name">Hilaluddin Ahmed</h3>
+            </div>
+            <div class="flat-badge">
+              <svg class="flat-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 21h18"></path>
+                <path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"></path>
+                <path d="M9 9h1"></path>
+                <path d="M9 13h1"></path>
+                <path d="M9 17h1"></path>
+                <path d="M14 9h1"></path>
+                <path d="M14 13h1"></path>
+                <path d="M14 17h1"></path>
+              </svg>
+              <span>J22/1101</span>
+            </div>
+          </article>
+
+          <!-- Card 02: Vice President -->
+          <article class="leader-card" id="leader-02">
+            <div>
+              <div class="card-top-row">
+                <span class="role-badge">VICE PRESIDENT</span>
+                <span class="card-index">02</span>
+              </div>
+              <h3 class="leader-name">Tamoghna Chatterjee</h3>
+            </div>
+            <div class="flat-badge">
+              <svg class="flat-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 21h18"></path>
+                <path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"></path>
+                <path d="M9 9h1"></path>
+                <path d="M9 13h1"></path>
+                <path d="M9 17h1"></path>
+                <path d="M14 9h1"></path>
+                <path d="M14 13h1"></path>
+                <path d="M14 17h1"></path>
+              </svg>
+              <span>J21/1105</span>
+            </div>
+          </article>
+
+          <!-- Card 03: Secretary -->
+          <article class="leader-card" id="leader-03">
+            <div>
+              <div class="card-top-row">
+                <span class="role-badge">SECRETARY</span>
+                <span class="card-index">03</span>
+              </div>
+              <h3 class="leader-name">Anindya Biswas</h3>
+            </div>
+            <div class="flat-badge">
+              <svg class="flat-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 21h18"></path>
+                <path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"></path>
+                <path d="M9 9h1"></path>
+                <path d="M9 13h1"></path>
+                <path d="M9 17h1"></path>
+                <path d="M14 9h1"></path>
+                <path d="M14 13h1"></path>
+                <path d="M14 17h1"></path>
+              </svg>
+              <span>J21/206</span>
+            </div>
+          </article>
+
+          <!-- Card 04: Joint Secretary -->
+          <article class="leader-card" id="leader-04">
+            <div>
+              <div class="card-top-row">
+                <span class="role-badge">JOINT SECRETARY</span>
+                <span class="card-index">04</span>
+              </div>
+              <h3 class="leader-name">Tapan Kumar Saha</h3>
+            </div>
+            <div class="flat-badge">
+              <svg class="flat-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 21h18"></path>
+                <path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"></path>
+                <path d="M9 9h1"></path>
+                <path d="M9 13h1"></path>
+                <path d="M9 17h1"></path>
+                <path d="M14 9h1"></path>
+                <path d="M14 13h1"></path>
+                <path d="M14 17h1"></path>
+              </svg>
+              <span>J22/0701</span>
+            </div>
+          </article>
+
+          <!-- Card 05: Treasurer -->
+          <article class="leader-card" id="leader-05">
+            <div>
+              <div class="card-top-row">
+                <span class="role-badge">TREASURER</span>
+                <span class="card-index">05</span>
+              </div>
+              <h3 class="leader-name">Arnab Majumdar</h3>
+            </div>
+            <div class="flat-badge">
+              <svg class="flat-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 21h18"></path>
+                <path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"></path>
+                <path d="M9 9h1"></path>
+                <path d="M9 13h1"></path>
+                <path d="M9 17h1"></path>
+                <path d="M14 9h1"></path>
+                <path d="M14 13h1"></path>
+                <path d="M14 17h1"></path>
+              </svg>
+              <span>J21/101</span>
+            </div>
+          </article>
+
+          <!-- Card 06: Joint Treasurer -->
+          <article class="leader-card" id="leader-06">
+            <div>
+              <div class="card-top-row">
+                <span class="role-badge">JOINT TREASURER</span>
+                <span class="card-index">06</span>
+              </div>
+              <h3 class="leader-name">Akash Jain</h3>
+            </div>
+            <div class="flat-badge">
+              <svg class="flat-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 21h18"></path>
+                <path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"></path>
+                <path d="M9 9h1"></path>
+                <path d="M9 13h1"></path>
+                <path d="M9 17h1"></path>
+                <path d="M14 9h1"></path>
+                <path d="M14 13h1"></path>
+                <path d="M14 17h1"></path>
+              </svg>
+              <span>J22/0704</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 03: REPRESENTATION (MATCHING SCREENSHOT 3)
+         ========================================================================== -->
+    <section class="section-light" id="representation-section">
+      <div class="container">
+        <!-- Section Header Row -->
+        <div class="section-header-row">
+          <div>
+            <div class="section-num-tag-light">
+              <span class="num-circle-light">03</span>
+              REPRESENTATION
+            </div>
+            <div class="sub-bar-tag">
+              <span class="dash"></span>
+              BOARD MEMBERS
+            </div>
+            <h2 class="section-title-light">
+              Residents who<br />
+              <span class="italic-accent">step forward.</span>
+            </h2>
+          </div>
+          <div class="section-desc-right-light">
+            Sixteen neighbours representing both buildings and helping shape our shared direction.
+          </div>
+        </div>
+
+        <!-- Board Members Table -->
+        <div class="representation-table-wrap">
+          <table class="rep-table" aria-label="Association Board Members">
+            <thead>
+              <tr>
+                <th scope="col" style="width: 70px;">NO.</th>
+                <th scope="col">MEMBER</th>
+                <th scope="col" class="col-apt">APARTMENT</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col-no">01</td>
+                <td class="col-name">Hilaluddin Ahmed</td>
+                <td class="col-apt-cell"><span class="apt-badge-pill">J22/1101</span></td>
+              </tr>
+              <tr>
+                <td class="col-no">02</td>
+                <td class="col-name">Anindya Biswas</td>
+                <td class="col-apt-cell"><span class="apt-badge-pill">J21/206</span></td>
+              </tr>
+              <tr>
+                <td class="col-no">03</td>
+                <td class="col-name">Tamoghna Chatterjee</td>
+                <td class="col-apt-cell"><span class="apt-badge-pill">J21/1105</span></td>
+              </tr>
+              <tr>
+                <td class="col-no">04</td>
+                <td class="col-name">Arnab Majumdar</td>
+                <td class="col-apt-cell"><span class="apt-badge-pill">J21/101</span></td>
+              </tr>
+              <tr>
+                <td class="col-no">05</td>
+                <td class="col-name">Tapan Kumar Saha</td>
+                <td class="col-apt-cell"><span class="apt-badge-pill">J22/0701</span></td>
+              </tr>
+              <tr>
+                <td class="col-no">06</td>
+                <td class="col-name">Akash Jain</td>
+                <td class="col-apt-cell"><span class="apt-badge-pill">J22/0704</span></td>
+              </tr>
+              <tr>
+                <td class="col-no">07</td>
+                <td class="col-name">Rajoshree Basu</td>
+                <td class="col-apt-cell"><span class="apt-badge-pill">J22/0802</span></td>
+              </tr>
+              <tr>
+                <td class="col-no">08</td>
+                <td class="col-name">Subhojit Goswami</td>
+                <td class="col-apt-cell"><span class="apt-badge-pill">J22/1206</span></td>
+              </tr>
+              <tr>
+                <td class="col-no">09</td>
+                <td class="col-name">Abhas Tiwary</td>
+                <td class="col-apt-cell"><span class="apt-badge-pill">J22/0405</span></td>
+              </tr>
+              <tr>
+                <td class="col-no">10</td>
+                <td class="col-name">Debabrata Mukherjee</td>
+                <td class="col-apt-cell"><span class="apt-badge-pill">J21/0402</span></td>
+              </tr>
+              <tr>
+                <td class="col-no">11</td>
+                <td class="col-name">Priyanka Sen</td>
+                <td class="col-apt-cell"><span class="apt-badge-pill">J21/0904</span></td>
+              </tr>
+              <tr>
+                <td class="col-no">12</td>
+                <td class="col-name">Sanjay Ghosh</td>
+                <td class="col-apt-cell"><span class="apt-badge-pill">J22/0303</span></td>
+              </tr>
+              <tr>
+                <td class="col-no">13</td>
+                <td class="col-name">Moumita Roy</td>
+                <td class="col-apt-cell"><span class="apt-badge-pill">J21/0605</span></td>
+              </tr>
+              <tr>
+                <td class="col-no">14</td>
+                <td class="col-name">Kunal Bandyopadhyay</td>
+                <td class="col-apt-cell"><span class="apt-badge-pill">J22/0901</span></td>
+              </tr>
+              <tr>
+                <td class="col-no">15</td>
+                <td class="col-name">Shreya Chakraborty</td>
+                <td class="col-apt-cell"><span class="apt-badge-pill">J21/0803</span></td>
+              </tr>
+              <tr>
+                <td class="col-no">16</td>
+                <td class="col-name">Rakesh Sharma</td>
+                <td class="col-apt-cell"><span class="apt-badge-pill">J22/0506</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 04: GOVERNANCE (MATCHING SCREENSHOT 2)
+         ========================================================================== -->
+    <section class="section-light" id="governance-section" style="border-top: 1px solid #e2e8f0; background-color: #fdfdfc;">
+      <div class="container">
+        <div class="governance-layout">
+          
+          <!-- Left Column -->
+          <div class="gov-left-col">
+            <div class="section-num-tag-light">
+              <span class="num-circle-light">04</span>
+              GOVERNANCE
+            </div>
+            
+            <div class="sub-bar-tag">
+              <span class="dash"></span>
+              MEETING RESOLUTIONS
+            </div>
+
+            <h2 class="section-title-light">
+              Decisions on<br />
+              <span class="italic-accent">the record.</span>
+            </h2>
+
+            <p class="gov-description">
+              Foundational resolutions adopted to formally establish and empower the Association.
+            </p>
+
+            <!-- Decorative Vector Parchment Motif -->
+            <div class="gov-parchment-graphic" aria-hidden="true">
+              <svg width="140" height="150" viewBox="0 0 140 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M25 20C25 14.4772 29.4772 10 35 10H110C115.523 10 120 14.4772 120 20V120C120 125.523 115.523 130 110 130H35C29.4772 130 25 125.523 25 120V20Z" stroke="#cbd5e1" stroke-width="4" fill="#f8fafc" />
+                <path d="M45 40H100" stroke="#cbd5e1" stroke-width="4" stroke-linecap="round" />
+                <path d="M45 65H100" stroke="#cbd5e1" stroke-width="4" stroke-linecap="round" />
+                <path d="M45 90H80" stroke="#cbd5e1" stroke-width="4" stroke-linecap="round" />
+                <path d="M15 35C15 26.7157 21.7157 20 30 20H40V140H30C21.7157 140 15 133.284 15 125V35Z" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="3" />
+              </svg>
+            </div>
+          </div>
+
+          <!-- Right Column: Numbered Resolutions List -->
+          <div class="resolutions-list">
+            
+            <div class="resolution-row">
+              <div class="resolution-content-box">
+                <span class="res-number">01</span>
+                <span class="res-text">Formation of the Board Members for one year.</span>
+              </div>
+              <div class="res-check-icon" title="Adopted Resolution">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+            </div>
+
+            <div class="resolution-row">
+              <div class="resolution-content-box">
+                <span class="res-number">02</span>
+                <span class="res-text">Election of Office Bearers.</span>
+              </div>
+              <div class="res-check-icon" title="Adopted Resolution">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+            </div>
+
+            <div class="resolution-row">
+              <div class="resolution-content-box">
+                <span class="res-number">03</span>
+                <span class="res-text">Authorization to manage maintenance, resident welfare and common services.</span>
+              </div>
+              <div class="res-check-icon" title="Adopted Resolution">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+            </div>
+
+            <div class="resolution-row">
+              <div class="resolution-content-box">
+                <span class="res-number">04</span>
+                <span class="res-text">Authorization to open and operate the Association Bank Account.</span>
+              </div>
+              <div class="res-check-icon" title="Adopted Resolution">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION: CONTACT THE BOARD
+         ========================================================================== -->
+    <section class="section-dark" id="contact-section">
+      <div class="container">
+        <!-- Section Header Row -->
+        <div class="section-header-row">
+          <div>
+            <div class="section-badge-tag">
+              <span class="num-circle">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+              </span>
+              COMMUNICATION
+            </div>
+            <h2 class="section-title-dark">
+              Contact <span class="lime-script">the board.</span>
+            </h2>
+          </div>
+          <div class="section-desc-right-dark">
+            Have a suggestion, facility issue, or query? Reach out directly to your elected representatives.
+          </div>
+        </div>
+
+        <div class="contact-layout">
+          <!-- Interactive Form -->
+          <div class="contact-form-card">
+            <form id="resident-inquiry-form" action="https://formsubmit.co/69852239d3bcb6cfb29189751f826e88" method="POST" onsubmit="handleFormSubmit(event)">
+              <!-- FormSubmit Configuration -->
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_subject" value="New Resident Inquiry - AOA J21/J22" />
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="resident-name">Resident Name *</label>
+                  <input type="text" id="resident-name" name="Resident Name" class="form-control" placeholder="e.g. Rahul Sen" required />
+                </div>
+                <div class="form-group">
+                  <label for="resident-flat-no">Flat No. *</label>
+                  <input type="text" id="resident-flat-no" name="Flat No." class="form-control" placeholder="e.g. J21/502" required />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="resident-email">Email Address *</label>
+                  <input type="email" id="resident-email" name="Resident Email" class="form-control" placeholder="name@domain.com" required />
+                </div>
+                <div class="form-group">
+                  <label for="inquiry-category">Category *</label>
+                  <select id="inquiry-category" name="Inquiry Category" class="form-control" required>
+                    <option value="">Select Category</option>
+                    <option value="Maintenance & Repairs">Maintenance &amp; Repairs</option>
+                    <option value="Accounts & Dues">Accounts &amp; Dues</option>
+                    <option value="Security & Parking">Security &amp; Parking</option>
+                    <option value="General Governance & Suggestion">General Governance &amp; Suggestion</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="resident-message">Your Message / Query *</label>
+                <textarea id="resident-message" name="Message" class="form-control" placeholder="Describe your inquiry or suggestion for the board..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn-submit" id="btn-send-message">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+                <span id="btn-submit-text">Submit to Association Board</span>
+              </button>
+
+              <div class="form-feedback" id="form-feedback-msg"></div>
+            </form>
+          </div>
+
+          <!-- Direct Directory Cards (Matching User Reference Screenshot) -->
+          <div class="contact-info-column">
+            
+            <!-- Official Contact Block (Address, Phone, Email with Arrows) -->
+            <div class="official-contact-block">
+              
+              <!-- Association Address -->
+              <a href="https://maps.google.com/?q=SP+Shukhobrishti+Complex+Action+Area+III+Newtown+Rajarhat+Kolkata+700135" target="_blank" rel="noopener noreferrer" class="contact-meta-row" title="Open in Maps">
+                <div class="contact-meta-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 21s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 7.2c0 7.3-8 11.8-8 11.8z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+                <div class="contact-meta-content">
+                  <span class="contact-meta-label">ASSOCIATION ADDRESS</span>
+                  <div class="contact-meta-value">
+                    J21/22, SP Shukhobrishti Complex<br />
+                    Action Area III, Newtown, Rajarhat<br />
+                    Kolkata — 700135
+                  </div>
+                </div>
+                <div class="contact-meta-arrow">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </div>
+              </a>
+
+              <!-- Phone -->
+              <a href="tel:+919734101442" class="contact-meta-row" title="Call Association">
+                <div class="contact-meta-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
+                </div>
+                <div class="contact-meta-content">
+                  <span class="contact-meta-label">PHONE</span>
+                  <div class="contact-meta-value">+91 97341 01442</div>
+                </div>
+                <div class="contact-meta-arrow">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </div>
+              </a>
+
+              <!-- Email -->
+              <a href="mailto:owners_associationj2122@gmail.com" class="contact-meta-row" title="Send Email">
+                <div class="contact-meta-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                  </svg>
+                </div>
+                <div class="contact-meta-content">
+                  <span class="contact-meta-label">EMAIL</span>
+                  <div class="contact-meta-value">owners_associationj2122@gmail.com</div>
+                </div>
+                <div class="contact-meta-arrow">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </div>
+              </a>
+
+            </div>
+
+            <!-- Gate & Office Timings -->
+            <div class="info-card">
+              <h4>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                Hours &amp; Gate Helplines
+              </h4>
+              <div class="info-item">
+                <strong>Office Hours:</strong>
+                <span>Every Sunday, 10:30 AM – 12:30 PM (Association Office)</span>
+              </div>
+              <div class="info-item">
+                <strong>Gate Desks:</strong>
+                <span>Tower J21 (Intercom 2100) &bull; Tower J22 (Intercom 2200)</span>
+              </div>
+              <div class="info-item">
+                <strong>Emergency:</strong>
+                <span style="color: var(--accent-lime); font-weight: 600;">24/7 Security Control Room Active</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <strong>Association of Apartment Owners (J21 &amp; J22)</strong><br />
+        <span style="color: #64748b; font-size: 12.5px;">
+          J21/22, SP Shukhobrishti Complex, Action Area III, Newtown, Rajarhat, Kolkata — 700135
+        </span><br />
+        <span style="color: #475569; font-size: 12px;">© 2026 Association of Apartment Owners. All rights reserved.</span>
+      </div>
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#announcements-section">Notices</a>
+        <a href="#events-section">Events</a>
+        <a href="#leadership-section">Meet the Association</a>
+        <a href="#representation-section">Representation</a>
+        <a href="#governance-section">Governance</a>
+        <a href="#contact-section">Contact the Board</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Popup -->
+  <div class="toast-popup" id="app-toast">Notification message</div>
+
+  <!-- JavaScript for Form Feedback, Toasts, and Smooth Anchoring -->
+  <script>
+    async function handleFormSubmit(e) {
+      e.preventDefault();
+      const form = document.getElementById('resident-inquiry-form');
+      const feedback = document.getElementById('form-feedback-msg');
+      const submitBtn = document.getElementById('btn-send-message');
+      const btnText = document.getElementById('btn-submit-text');
+
+      const name = document.getElementById('resident-name').value.trim();
+      const flatNo = document.getElementById('resident-flat-no').value.trim();
+      const email = document.getElementById('resident-email').value.trim();
+      const category = document.getElementById('inquiry-category').value;
+      const message = document.getElementById('resident-message').value.trim();
+
+      // Set Loading UI
+      const originalText = btnText ? btnText.textContent : 'Submit to Association Board';
+      submitBtn.disabled = true;
+      if (btnText) btnText.textContent = 'Sending to Association...';
+
+      const payload = {
+        "Resident Name": name,
+        "Flat No.": flatNo,
+        "Resident Email": email,
+        "Inquiry Category": category,
+        "Message": message,
+        "_subject": `[AOA J21/J22 Inquiry] ${category} - Flat ${flatNo} (${name})`,
+        "_template": "table",
+        "_captcha": "false"
+      };
+
+      try {
+        const response = await fetch("https://formsubmit.co/ajax/69852239d3bcb6cfb29189751f826e88", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify(payload)
+        });
+
+        const data = await response.json();
+
+        if (data.success === "true" || data.success === true) {
+          feedback.style.display = 'block';
+          feedback.className = 'form-feedback success';
+          feedback.innerHTML = `✓ Thank you <strong>${name}</strong> (Flat ${flatNo})! Your inquiry has been delivered directly to the Association Board. Our representatives will review your message and get back to you shortly.`;
+          form.reset();
+          showToast(`Inquiry delivered successfully!`);
+        } else if (data.message && data.message.includes("Activation")) {
+          feedback.style.display = 'block';
+          feedback.className = 'form-feedback success';
+          feedback.innerHTML = `📬 <strong>Action Required:</strong> An activation link has been dispatched to the board mailbox. Please confirm it once to finalize form routing.`;
+          showToast(`Activation email sent`);
+        } else if (data.message && (data.message.includes("HTML files") || data.message.includes("web server"))) {
+          feedback.style.display = 'block';
+          feedback.className = 'form-feedback error';
+          feedback.innerHTML = `⚠️ <strong>Local file preview detected:</strong> You opened this directly as a local file (<code>file://</code>). Browser security requires this page to be hosted on a web server (such as GitHub Pages or <code>http://localhost</code>) to send inquiries via the form.<br /><br />
+          👉 Once deployed on GitHub Pages, submissions will transmit automatically!`;
+        } else {
+          feedback.style.display = 'block';
+          feedback.className = 'form-feedback success';
+          feedback.innerHTML = `✓ Thank you <strong>${name}</strong> (Flat ${flatNo})! Your inquiry was submitted to the board.`;
+          form.reset();
+        }
+      } catch (err) {
+        feedback.style.display = 'block';
+        feedback.className = 'form-feedback error';
+        feedback.innerHTML = `⚠️ Network request could not be completed. If browsing as a local file, please test once deployed on GitHub Pages or via a web server.`;
+      } finally {
+        submitBtn.disabled = false;
+        if (btnText) btnText.textContent = originalText;
+        setTimeout(() => {
+          feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 80);
+      }
+    }
+
+    let toastTimer = null;
+    function showToast(message) {
+      const toast = document.getElementById('app-toast');
+      if (!toast) return;
+      toast.textContent = message;
+      toast.style.display = 'block';
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.style.display = 'none';
+      }, 3500);
+    }
+  </script>
+</body>
+</html>
